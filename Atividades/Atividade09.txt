@@ -1,4 +1,4 @@
-1. Crie o modelo fisico para cada modelo relacional utilizando a ferramenta SQL Power Architect.
+1. Crie o modelo NoSQL orientado a colunas para os seguintes modelos relacionais.
 
 a) 
 Projeto (numero_projeto*, nome_projeto, data_inicio_projeto, numero_gerente)

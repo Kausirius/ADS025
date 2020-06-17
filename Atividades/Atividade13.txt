@@ -1,0 +1,21 @@
+1. Resolver as consultas a seguir usando MongoDB.
+
+a) Forneça nome dos professores.
+
+b) Liste os alunos cujo nome terminam em A.
+
+c) Forneça chave primária, número de faltas e media final dos alunos matriculados na turma 1.
+
+d) Forneça chave primária dos alunos que não possuem media final na disciplina 1.
+
+e) Encontre nome do alunos que não foram reprovados (num_faltas < 75% ou nota < 5) em alguma disciplina.
+
+f) Liste, em ordem alfabética, os alunos que tiveram aula com o professor JOSE REGINALDO.
+
+g) Encontre as disciplinas que não foram ministradas pela professora LETICIA.
+
+h) Calcule a média geral de cada turma.
+
+i) Quantos alunos matriculados na disciplina de BANCO DE DADOS I em cada período.
+
+j) Encontre o nome dos alunos que cursaram todas as disciplinas.

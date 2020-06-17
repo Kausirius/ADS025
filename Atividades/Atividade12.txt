@@ -1,0 +1,133 @@
+1. Crie um banco de dados chamado academico no MongoDB.
+
+db.createCollection("aluno", {
+  validator: {
+    $jsonSchema: {
+       bsonType: "object",
+       required: ["nome"],
+       properties: {
+          nome: { bsonType: "string", description: "deve ser uma string e obrigatorio" }
+       }
+    }
+  }
+});
+
+db.createCollection("disciplina", {
+  validator: {
+    $jsonSchema: {
+       bsonType: "object",
+       required: ["nome"],
+       properties: {
+          nome: { bsonType: "string", description: "deve ser uma string e obrigatorio" },
+	  cargaHoraria : { bsonType: "int", minimum: 0, description: "deve ser um inteiro maior igual a 0" }
+       }
+    }
+  }
+});
+
+db.createCollection("professor", {
+  validator: {
+    $jsonSchema: {
+       bsonType: "object",
+       required: ["nome", "titulacao"],
+       properties: {
+          nome: { bsonType: "string", description: "deve ser uma string e obrigatorio" },
+          titulacao: { bsonType: "string", description: "deve ser uma string e obrigatorio" },
+       }
+    }
+  }
+});
+
+db.createCollection("turma", {
+  validator: {
+    $jsonSchema: {
+       bsonType: "object",
+       required: ["numPeriodo"],
+       properties: {
+         idProfessor: { bsonType: "objectId", description: "deve ser um objectId" },
+	 idDisciplina: { bsonType: "objectId", description: "deve ser um objectId" },
+	 horarioAula: { bsonType: "string", description: "deve ser uma string" },
+	 numSala: { bsonType: "string", description: "deve ser uma string" }
+       }
+    }
+  }
+});
+
+db.createCollection("historico", {
+  validator: {
+    $jsonSchema: {
+       bsonType: "object",
+       required: ["idTurma, idAluno"],
+       properties: {
+         idTurma: { bsonType: "objectId", description: "deve ser um objectId" },
+	 idAluno: { bsonType: "objectId", description: "deve ser um objectId" },
+	 numFaltas: { bsonType: "int", description: "deve ser um int" },
+	 mediaFinal: { bsonType: "double", description: "deve ser um double" }
+       }
+    }
+  }
+});
+
+
+
+2. Elabore os comandos em um banco de dados MongoDB.
+
+b) Insira um documento na coleção aluno preechendo somente a coluna _id com o valor 1. Qual foi o resultado?
+
+c) Insira os seguintes documentos na coleção aluno.
+
+_id        nome
+1          JOSE
+2          MARIA
+3          BRUNO
+4          CARLA
+5          PEDRO
+
+d) Insira um documento na coleção disciplina com os valores 1 para _id, BANCO DE DADOS I para nome e -1 para cargaHoraria. Qual foi o resultado?
+
+e) Insira os seguintes documentos na coleção disciplina.
+
+_id              nome                cargaHoraria
+1                BANCO DE DADOS I    60
+2                BANCO DE DADOS II   60
+
+f) Insira os seguintes documentos na coleção professor.
+_id            nome
+1              LETICIA
+2              JOSE REGINALDO
+
+g) Insira um documento na coleção turma com os valores 1 para _id, 20192 para numPeriodo. Qual foi o resultado?
+
+h) Insira um documento na coleção turma com os valores 1 para _id, 20201 para numPeriodo. Qual foi o resultado?
+
+i) Insira um documento na coleção turma com os valores 2 para _id, 20201 para numPeriodo e 3 para idProfessor. Qual foi o resultado?
+
+j) Insira os documentos na coleção turma.
+
+_id         numPeriodo   idProfessor  idDisciplina
+3          20201         1             1
+4          20202         2             2
+
+k) Insira os registros na coleção historico.
+
+_id             idTurma   idAluno
+1               1          1
+2               1          2
+3               1          3
+4               1          4
+5               3          1
+6               3          2
+7               4          3
+8               4          4
+	   
+l) Altere o nome do aluno JOSE para JOAO.
+
+m) Altere o _id de BANCO DE DADOS I para o valor 3. Qual foi o resultado?
+
+n) Altere a mediaFinal dos alunos que estão na turma de BANCO DE DADOS II para 5.
+
+o) Exclua o aluno PEDRO. Qual foi o resultado?
+
+p) Exclua a disciplina BANCO DE DADOS II. Qual foi o resultado?
+
+q) Exclua o professor JOSE REGINALDO. Qual foi o resultado?
